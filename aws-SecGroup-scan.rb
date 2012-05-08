@@ -20,8 +20,8 @@ EOS
   opt :aws_key, "AWS Public Key", :type => String, :short => "-k"
   opt :aws_secret, "AWS Secret Key", :type => String, :short => "-s"
 end
-Trollop::die :aws_key, "must provide AWS Public Key" if opts[:aws_key] == false
-Trollop::die :aws_secret, "must provide AWS Secret Key" if opts[:aws_secret] == false
+Trollop::die :aws_key, "must provide AWS Public Key" if opts[:aws_key] == nil
+Trollop::die :aws_secret, "must provide AWS Secret Key" if opts[:aws_secret] == nil
 
 ec2 = AWS::EC2.new(
     :access_key_id => opts[:aws_key],
